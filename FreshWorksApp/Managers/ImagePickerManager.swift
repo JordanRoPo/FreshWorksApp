@@ -85,6 +85,7 @@ final class ImagePickerManager: NSObject, UINavigationControllerDelegate, Images
                 guard let strongSelf = self else { return }
                 strongSelf.openCamera()
             })
+            
             let choosePhotoAction:UIAlertAction = UIAlertAction(title: Strings().choosePhotoFromLibraryTitle, style: .default, handler: { [weak self]
                 (alert: UIAlertAction!) -> Void in
                 guard let strongSelf = self else { return }
@@ -94,14 +95,12 @@ final class ImagePickerManager: NSObject, UINavigationControllerDelegate, Images
             optionMenu.addAction(takePhotoAction)
             optionMenu.addAction(choosePhotoAction)
             
-            //
             let cancelAction:UIAlertAction = UIAlertAction(title: Strings().cancelTitle, style: .cancel, handler: {
                 (alert: UIAlertAction) -> Void in
             })
             
             optionMenu.addAction(cancelAction)
             
-            //
             self.vc?.present(optionMenu, animated: true, completion: nil)
         })
     }
